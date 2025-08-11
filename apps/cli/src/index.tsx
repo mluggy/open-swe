@@ -25,10 +25,10 @@ import { t, getLocaleInfo } from "./i18n.js";
 const program = new Command();
 
 program
-  .name("open-swe")
-  .description("Open SWE CLI - Local Mode")
+  .name(t('commands.name'))
+  .description(t('commands.description'))
   .version(OPEN_SWE_CLI_VERSION)
-  .helpOption("-h, --help", "Display help for command")
+  .helpOption("-h, --help", t('commands.helpOption'))
   .parse();
 
 // Always run in local mode
@@ -295,5 +295,6 @@ const App: React.FC = () => {
 };
 
 render(<App />);
+
 
 
