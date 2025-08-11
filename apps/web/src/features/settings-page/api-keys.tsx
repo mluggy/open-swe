@@ -97,11 +97,14 @@ export function APIKeysTab() {
     const sections: Record<string, ApiKeySection> = {};
     const apiKeys = config.apiKeys || {};
 
-    Object.entries(API_KEY_SECTIONS).forEach(([sectionKey, sectionInfo]) => {
+    const apiKeySections = getApiKeySections(t);
+    const apiKeyDefinitions = getApiKeyDefinitions(t);
+    
+    Object.entries(apiKeySections).forEach(([sectionKey, sectionInfo]) => {
       sections[sectionKey] = {
         ...sectionInfo,
-        keys: API_KEY_DEFINITIONS[
-          sectionKey as keyof typeof API_KEY_DEFINITIONS
+        keys: apiKeyDefinitions[
+          sectionKey as keyof typeof apiKeyDefinitions
         ].map((keyDef) => ({
           ...keyDef,
           value: apiKeys[keyDef.id] || "",
@@ -235,6 +238,7 @@ export function APIKeysTab() {
     </div>
   );
 }
+
 
 
 
