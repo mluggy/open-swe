@@ -2,6 +2,7 @@
 
 import { Suspense } from "react";
 import SettingsPage from "@/features/settings-page/index";
+import { useTranslation } from "@/hooks/useTranslation";
 
 function SettingsPageLoading() {
   return (
@@ -26,3 +27,4 @@ export default function Page() {
     </Suspense>
   );
 }
+
