@@ -278,7 +278,7 @@ const App: React.FC = () => {
             />
           ) : (
             <Box>
-              <Text>Streaming...</Text>
+              <Text>{t('status.streaming')}</Text>
             </Box>
           )}
         </Box>
@@ -295,6 +295,7 @@ const App: React.FC = () => {
 };
 
 render(<App />);
+
 
 
 
