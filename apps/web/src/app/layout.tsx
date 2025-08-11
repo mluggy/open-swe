@@ -5,7 +5,7 @@ import React from "react";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { ThemeProvider } from "@/components/theme-provider";
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages, getLocale } from 'next-intl/server';
+import { getMessages, getLocale, getTranslations } from 'next-intl/server';
 import { 
   getLanguageFromLocale, 
   isRTLLanguage, 
@@ -84,6 +84,7 @@ export default async function RootLayout({
     </html>
   );
 }
+
 
 
 
