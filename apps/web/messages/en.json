@@ -1,3 +1,73 @@
 {
-  "placeholder": "English messages will be added in the next task"
+  "metadata": {
+    "title": "Open SWE",
+    "description": "Open SWE UX by LangChain"
+  },
+  "settings": {
+    "title": "Settings",
+    "loading": "Loading your settings...",
+    "apiKeys": {
+      "title": "API Keys",
+      "description": "Manage API keys for {service} services",
+      "configured": "Configured",
+      "lastUsed": "Last used {date}",
+      "apiKeyLabel": "API Key",
+      "placeholder": "Enter your {provider} API key",
+      "showKey": "Show API key",
+      "hideKey": "Hide API key",
+      "deleteKey": "Delete API key",
+      "llmsTitle": "LLMs",
+      "anthropicInfo": "Open SWE uses Anthropic models by default. Configure your Anthropic API key below to get started.",
+      "anthropicRequired": "Only an Anthropic API key is required to get started.",
+      "providers": {
+        "anthropic": "Anthropic",
+        "openai": "OpenAI",
+        "google": "Google Gen AI"
+      }
+    }
+  },
+  "threads": {
+    "title": "Threads",
+    "count": "Threads ({count})",
+    "loading": "Loading threads...",
+    "noThreads": "No threads found",
+    "pagination": {
+      "showing": "Showing {start}-{end} of {total} threads",
+      "previous": "Previous",
+      "next": "Next"
+    }
+  },
+  "navigation": {
+    "chat": "Chat",
+    "settings": "Settings",
+    "threads": "Threads"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Retry",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "submit": "Submit",
+    "confirm": "Confirm"
+  },
+  "errors": {
+    "generic": "Something went wrong. Please try again.",
+    "network": "Network error. Please check your connection.",
+    "unauthorized": "You are not authorized to perform this action.",
+    "notFound": "The requested resource was not found.",
+    "validation": "Please check your input and try again."
+  },
+  "theme": {
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System"
+  }
 }
+
