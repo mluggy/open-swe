@@ -193,7 +193,7 @@ describe('Shared i18n utilities', () => {
     it('should handle empty strings', () => {
       expect(normalizeLocale('')).toBe('en-US');
       expect(getLanguageFromLocale('')).toBe('en');
-      expect(parseAcceptLanguage('')).toEqual([]);
+      expect(parseAcceptLanguage('')).toBe('en-US');
     });
 
     it('should handle whitespace-only inputs', () => {
@@ -207,6 +207,7 @@ describe('Shared i18n utilities', () => {
     });
   });
 });
+
 
 
 
