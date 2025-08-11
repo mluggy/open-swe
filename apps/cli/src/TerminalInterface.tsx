@@ -35,7 +35,7 @@ const TerminalInterface: React.FC<TerminalInterfaceProps> = ({
       </Box>
       {message && (
         <Box marginTop={1}>
-          <Text color="green">You typed: {message}</Text>
+          <Text color="green">{t('input.submit')}: {message}</Text>
         </Box>
       )}
       {repoName && (
@@ -48,6 +48,7 @@ const TerminalInterface: React.FC<TerminalInterfaceProps> = ({
 };
 
 export default TerminalInterface;
+
 
 
 
