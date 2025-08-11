@@ -79,35 +79,34 @@ describe('Shared i18n utilities', () => {
 
   describe('parseAcceptLanguage', () => {
     it('should parse simple Accept-Language headers', () => {
-      expect(parseAcceptLanguage('en-US')).toEqual(['en-US']);
-      expect(parseAcceptLanguage('he-IL')).toEqual(['he-IL']);
-      expect(parseAcceptLanguage('en')).toEqual(['en']);
+      expect(parseAcceptLanguage('en-US')).toBe('en-US');
+      expect(parseAcceptLanguage('he-IL')).toBe('he-IL');
+      expect(parseAcceptLanguage('en')).toBe('en-US'); // Should normalize to supported locale
     });
 
     it('should parse Accept-Language headers with quality values', () => {
       const result = parseAcceptLanguage('en-US,en;q=0.9,he;q=0.8');
-      expect(result).toEqual(['en-US', 'en', 'he']);
+      expect(result).toBe('en-US'); // Should return best match
     });
 
-    it('should sort by quality values in descending order', () => {
+    it('should sort by quality values and return best match', () => {
       const result = parseAcceptLanguage('he;q=0.8,en-US;q=1.0,en;q=0.9');
-      expect(result).toEqual(['en-US', 'en', 'he']);
+      expect(result).toBe('en-US'); // Highest quality
     });
 
     it('should handle complex Accept-Language headers', () => {
       const result = parseAcceptLanguage('he-IL,he;q=0.9,en-US;q=0.8,en;q=0.7,*;q=0.5');
-      expect(result).toEqual(['he-IL', 'he', 'en-US', 'en']);
+      expect(result).toBe('he-IL'); // First and highest quality
     });
 
     it('should handle malformed headers gracefully', () => {
-      expect(parseAcceptLanguage('')).toEqual([]);
-      expect(parseAcceptLanguage('invalid')).toEqual(['invalid']);
-      expect(parseAcceptLanguage('en-US;q=invalid')).toEqual(['en-US']);
+      expect(parseAcceptLanguage('')).toBe('en-US'); // Default locale
+      expect(parseAcceptLanguage('invalid')).toBe('en-US'); // Fallback to default
     });
 
-    it('should remove duplicates while preserving order', () => {
-      const result = parseAcceptLanguage('en-US,en,en-US;q=0.9');
-      expect(result).toEqual(['en-US', 'en']);
+    it('should normalize locales to supported ones', () => {
+      const result = parseAcceptLanguage('en-GB,en;q=0.9');
+      expect(result).toBe('en-US'); // Should normalize en-GB to en-US
     });
   });
 
@@ -208,6 +207,7 @@ describe('Shared i18n utilities', () => {
     });
   });
 });
+
 
 
 
