@@ -19,6 +19,7 @@ process.on("SIGTERM", () => {
 
 import { submitFeedback } from "./utils.js";
 import { StreamingService } from "./streaming.js";
+import { t, getLocaleInfo } from "./i18n.js";
 
 // Parse command line arguments with Commander
 const program = new Command();
@@ -294,3 +295,4 @@ const App: React.FC = () => {
 };
 
 render(<App />);
+
