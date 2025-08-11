@@ -39,11 +39,11 @@ const getApiKeySections = (t: any): Record<string, Omit<ApiKeySection, "keys">> 
   // },
 });
 
-const API_KEY_DEFINITIONS = {
+const getApiKeyDefinitions = (t: any) => ({
   llms: [
-    { id: "anthropicApiKey", name: "Anthropic" },
-    { id: "openaiApiKey", name: "OpenAI" },
-    { id: "googleApiKey", name: "Google Gen AI" },
+    { id: "anthropicApiKey", name: t('providers.anthropic') },
+    { id: "openaiApiKey", name: t('providers.openai') },
+    { id: "googleApiKey", name: t('providers.google') },
   ],
   // infrastructure: [
   //   {
@@ -52,7 +52,7 @@ const API_KEY_DEFINITIONS = {
   //     description: "Users not required to set this if using the demo",
   //   },
   // ],
-};
+});
 
 const shouldAutofocus = (apiKeyId: string, hasValue: boolean): boolean => {
   if (apiKeyId === "anthropicApiKey") {
@@ -235,6 +235,7 @@ export function APIKeysTab() {
     </div>
   );
 }
+
 
 
 
