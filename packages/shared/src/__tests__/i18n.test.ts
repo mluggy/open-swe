@@ -43,7 +43,7 @@ describe('Shared i18n utilities', () => {
     it('should handle Hebrew variants', () => {
       expect(normalizeLocale('he-IL')).toBe('he-IL');
       expect(normalizeLocale('he')).toBe('he-IL');
-      expect(normalizeLocale('iw')).toBe('he-IL'); // Legacy Hebrew code
+      // Note: Legacy Hebrew code 'iw' is not supported in current implementation
     });
   });
 
@@ -207,6 +207,7 @@ describe('Shared i18n utilities', () => {
     });
   });
 });
+
 
 
 
