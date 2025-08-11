@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Text } from "ink";
+import { t } from "./i18n.js";
 
 interface TerminalInterfaceProps {
   message: string | null;
@@ -47,3 +48,4 @@ const TerminalInterface: React.FC<TerminalInterfaceProps> = ({
 };
 
 export default TerminalInterface;
+
