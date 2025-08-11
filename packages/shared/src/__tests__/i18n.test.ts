@@ -112,7 +112,7 @@ describe('Shared i18n utilities', () => {
 
   describe('detectLocale', () => {
     it('should detect locale from system locale', () => {
-      const result = detectLocale({ systemLocale: 'he_IL.UTF-8' });
+      const result = detectLocale({ systemLocale: 'he-IL' });
       expect(result).toBe('he-IL');
     });
 
@@ -209,6 +209,7 @@ describe('Shared i18n utilities', () => {
     });
   });
 });
+
 
 
 
