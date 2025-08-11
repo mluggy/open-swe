@@ -42,12 +42,13 @@ export const config = {
 
     // Set a cookie to remember the previous locale for
     // all requests that have a locale prefix
-    '/(he|en)/:path*',
+    '/(he-IL|en-US)/:path*',
 
     // Enable redirects that add missing locales
-    // (e.g. `/pathnames` -> `/en/pathnames`)
+    // (e.g. `/pathnames` -> `/en-US/pathnames`)
     '/((?!_next|_vercel|.*\\..*).*)'
   ]
 };
+
 
 
