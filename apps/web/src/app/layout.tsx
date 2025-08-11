@@ -4,6 +4,13 @@ import { Inter } from "next/font/google";
 import React from "react";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { ThemeProvider } from "@/components/theme-provider";
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages, getLocale } from 'next-intl/server';
+import { 
+  getLanguageFromLocale, 
+  isRTLLanguage, 
+  type SupportedLanguage 
+} from '@open-swe/shared';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -68,3 +75,4 @@ export default function RootLayout({
     </html>
   );
 }
+
