@@ -5,7 +5,7 @@ import {
   normalizeLocale,
   detectLocale,
   parseAcceptLanguage 
-} from '@open-swe/shared/i18n';
+} from '@open-swe/shared';
 
 export default createMiddleware({
   // A list of all locales that are supported
@@ -49,3 +49,4 @@ export const config = {
     '/((?!_next|_vercel|.*\\..*).*)'
   ]
 };
+
