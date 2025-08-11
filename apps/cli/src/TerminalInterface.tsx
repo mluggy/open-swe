@@ -40,7 +40,7 @@ const TerminalInterface: React.FC<TerminalInterfaceProps> = ({
       )}
       {repoName && (
         <Box marginTop={0} marginBottom={0}>
-          <Text color="gray">Repository: {repoName}</Text>
+          <Text color="gray">{t('common.repository')}: {repoName}</Text>
         </Box>
       )}
     </Box>
@@ -48,6 +48,7 @@ const TerminalInterface: React.FC<TerminalInterfaceProps> = ({
 };
 
 export default TerminalInterface;
+
 
 
 
