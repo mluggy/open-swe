@@ -1,37 +1,21 @@
 import createMiddleware from 'next-intl/middleware';
 import { 
-  SUPPORTED_LOCALES, 
-  DEFAULT_LOCALE, 
-  normalizeLocale,
-  detectLocale,
-  parseAcceptLanguage 
+  SUPPORTED_LANGUAGES, 
+  DEFAULT_LANGUAGE
 } from '@open-swe/shared';
 
 export default createMiddleware({
-  // A list of all locales that are supported
-  locales: [...SUPPORTED_LOCALES],
+  // A list of all locales that are supported (using language codes for routing)
+  locales: [...SUPPORTED_LANGUAGES],
 
   // Used when no locale matches
-  defaultLocale: DEFAULT_LOCALE,
+  defaultLocale: DEFAULT_LANGUAGE,
 
   // Custom locale detection function
   localeDetection: true,
 
   // Custom locale prefix strategy
-  localePrefix: 'as-needed',
-
-  // Custom path names for different locales (optional)
-  pathnames: {
-    '/': '/',
-    '/settings': {
-      'en-US': '/settings',
-      'he-IL': '/הגדרות'
-    },
-    '/chat': {
-      'en-US': '/chat', 
-      'he-IL': '/צ\'אט'
-    }
-  }
+  localePrefix: 'as-needed'
 });
 
 export const config = {
@@ -42,13 +26,14 @@ export const config = {
 
     // Set a cookie to remember the previous locale for
     // all requests that have a locale prefix
-    '/(he-IL|en-US)/:path*',
+    '/(he|en)/:path*',
 
     // Enable redirects that add missing locales
-    // (e.g. `/pathnames` -> `/en-US/pathnames`)
+    // (e.g. `/pathnames` -> `/en/pathnames`)
     '/((?!_next|_vercel|.*\\..*).*)'
   ]
 };
+
 
 
 
