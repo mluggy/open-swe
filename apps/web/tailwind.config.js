@@ -16,6 +16,9 @@ module.exports = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      spacing: {
+        'rtl-safe': '0.5rem',
+      },
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
@@ -62,4 +65,5 @@ module.exports = {
   },
   plugins: [require("tailwindcss-animate"), require("tailwind-scrollbar")],
 };
+
 
