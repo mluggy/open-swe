@@ -18,15 +18,19 @@ const inter = Inter({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "Open SWE",
-  description: "Open SWE UX by LangChain",
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/favicon.ico",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations('metadata');
+  
+  return {
+    title: t('title'),
+    description: t('description'),
+    icons: {
+      icon: "/favicon.ico",
+      shortcut: "/favicon.ico",
+      apple: "/favicon.ico",
+    },
+  };
+}
 
 export default async function RootLayout({
   children,
@@ -84,6 +88,7 @@ export default async function RootLayout({
     </html>
   );
 }
+
 
 
 
