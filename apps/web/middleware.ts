@@ -24,12 +24,12 @@ export default createMiddleware({
   pathnames: {
     '/': '/',
     '/settings': {
-      en: '/settings',
-      he: '/הגדרות'
+      'en-US': '/settings',
+      'he-IL': '/הגדרות'
     },
     '/chat': {
-      en: '/chat', 
-      he: '/צ\'אט'
+      'en-US': '/chat', 
+      'he-IL': '/צ\'אט'
     }
   }
 });
@@ -49,4 +49,5 @@ export const config = {
     '/((?!_next|_vercel|.*\\..*).*)'
   ]
 };
+
 
