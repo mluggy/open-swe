@@ -1,3 +1,96 @@
 {
-  "placeholder": "הודעות בעברית יתווספו במשימה הבאה"
+  "metadata": {
+    "title": "Open SWE",
+    "description": "Open SWE UX מאת LangChain"
+  },
+  "settings": {
+    "title": "הגדרות",
+    "loading": "טוען את ההגדרות שלך...",
+    "apiKeys": {
+      "title": "מפתחות API",
+      "description": "נהל מפתחות API עבור שירותי {service}",
+      "configured": "מוגדר",
+      "lastUsed": "שימוש אחרון {date}",
+      "apiKeyLabel": "מפתח API",
+      "placeholder": "הזן את מפתח ה-API של {provider}",
+      "showKey": "הצג מפתח API",
+      "hideKey": "הסתר מפתח API",
+      "deleteKey": "מחק מפתח API",
+      "llmsTitle": "מודלי שפה גדולים",
+      "anthropicInfo": "Open SWE משתמש במודלים של Anthropic כברירת מחדל. הגדר את מפתח ה-API של Anthropic למטה כדי להתחיל.",
+      "anthropicRequired": "נדרש רק מפתח API של Anthropic כדי להתחיל.",
+      "providers": {
+        "anthropic": "Anthropic",
+        "openai": "OpenAI",
+        "google": "Google Gen AI"
+      }
+    }
+  },
+  "threads": {
+    "title": "שרשורים",
+    "count": "שרשורים ({count})",
+    "loading": "טוען שרשורים...",
+    "noThreads": "לא נמצאו שרשורים",
+    "pagination": {
+      "showing": "מציג {start}-{end} מתוך {total} שרשורים",
+      "previous": "קודם",
+      "next": "הבא"
+    }
+  },
+  "navigation": {
+    "chat": "צ'אט",
+    "settings": "הגדרות",
+    "threads": "שרשורים"
+  },
+  "common": {
+    "loading": "טוען...",
+    "error": "אירעה שגיאה",
+    "retry": "נסה שוב",
+    "cancel": "ביטול",
+    "save": "שמור",
+    "delete": "מחק",
+    "edit": "ערוך",
+    "close": "סגור",
+    "back": "חזור",
+    "next": "הבא",
+    "previous": "קודם",
+    "submit": "שלח",
+    "confirm": "אשר"
+  },
+  "errors": {
+    "generic": "משהו השתבש. אנא נסה שוב.",
+    "network": "שגיאת רשת. אנא בדוק את החיבור שלך.",
+    "unauthorized": "אינך מורשה לבצע פעולה זו.",
+    "notFound": "המשאב המבוקש לא נמצא.",
+    "validation": "אנא בדוק את הקלט שלך ונסה שוב."
+  },
+  "theme": {
+    "light": "בהיר",
+    "dark": "כהה",
+    "system": "מערכת"
+  },
+  "chat": {
+    "title": "צ'אט",
+    "newChat": "צ'אט חדש",
+    "loading": "טוען צ'אט...",
+    "typing": "מקליד...",
+    "sendMessage": "שלח הודעה",
+    "placeholder": "הקלד את ההודעה שלך..."
+  },
+  "github": {
+    "title": "GitHub",
+    "connect": "התחבר ל-GitHub",
+    "disconnect": "התנתק",
+    "connected": "מחובר",
+    "notConnected": "לא מחובר",
+    "repositories": "מאגרים",
+    "selectRepository": "בחר מאגר"
+  },
+  "configuration": {
+    "title": "תצורה",
+    "general": "כללי",
+    "advanced": "מתקדם",
+    "reset": "איפוס לברירת מחדל"
+  }
 }
+
