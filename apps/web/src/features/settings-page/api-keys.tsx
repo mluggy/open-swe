@@ -161,7 +161,7 @@ export function APIKeysTab() {
                           "dark:border-green-800 dark:bg-green-900/20 dark:text-green-400",
                         )}
                       >
-                        Configured
+{t('configured')}
                       </Badge>
                     )}
                     {apiKey.lastUsed && (
@@ -235,6 +235,7 @@ export function APIKeysTab() {
     </div>
   );
 }
+
 
 
 
