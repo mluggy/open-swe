@@ -16,6 +16,7 @@ export default function TaskList() {
   const [threadId, setThreadId] = useQueryState("threadId", parseAsString);
   const [currentPage, setCurrentPage] = useState(0);
   const { threads, threadsLoading, handleThreadClick } = useThreadsContext();
+  const { t } = useTranslation('threads');
 
   const isDashboardMode = !taskId;
 
@@ -105,4 +106,5 @@ export default function TaskList() {
     </div>
   );
 }
+
 
