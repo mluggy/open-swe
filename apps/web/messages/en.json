@@ -68,6 +68,30 @@
     "light": "Light",
     "dark": "Dark",
     "system": "System"
+  },
+  "chat": {
+    "title": "Chat",
+    "newChat": "New Chat",
+    "loading": "Loading chat...",
+    "typing": "Typing...",
+    "sendMessage": "Send message",
+    "placeholder": "Type your message..."
+  },
+  "github": {
+    "title": "GitHub",
+    "connect": "Connect to GitHub",
+    "disconnect": "Disconnect",
+    "connected": "Connected",
+    "notConnected": "Not connected",
+    "repositories": "Repositories",
+    "selectRepository": "Select repository"
+  },
+  "configuration": {
+    "title": "Configuration",
+    "general": "General",
+    "advanced": "Advanced",
+    "reset": "Reset to defaults"
   }
 }
+
 
