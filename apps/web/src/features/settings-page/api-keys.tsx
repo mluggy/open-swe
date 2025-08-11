@@ -179,7 +179,7 @@ export function APIKeysTab() {
                         htmlFor={`${apiKey.id}-key`}
                         className="text-sm font-medium"
                       >
-                        API Key
+{t('apiKeyLabel')}
                       </Label>
                       {apiKey.description && (
                         <p className="text-muted-foreground text-xs">
@@ -235,6 +235,7 @@ export function APIKeysTab() {
     </div>
   );
 }
+
 
 
 
