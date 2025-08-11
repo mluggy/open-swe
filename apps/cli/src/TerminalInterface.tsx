@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Text } from "ink";
+import { t } from "./i18n.js";
 
 interface TerminalInterfaceProps {
   message: string | null;
@@ -17,10 +18,10 @@ const TerminalInterface: React.FC<TerminalInterfaceProps> = ({
   return (
     <Box flexDirection="column" padding={1}>
       <Box justifyContent="center" marginBottom={0}>
-        <Text bold>LangChain Open SWE CLI</Text>
+        <Text bold>{t('commands.description')}</Text>
       </Box>
       <Box flexDirection="column">
-        <Text>Describe your coding task in as much detail as possible...</Text>
+        <Text>{t('input.placeholder')}</Text>
       </Box>
       <Box
         borderStyle="round"
@@ -34,12 +35,12 @@ const TerminalInterface: React.FC<TerminalInterfaceProps> = ({
       </Box>
       {message && (
         <Box marginTop={1}>
-          <Text color="green">You typed: {message}</Text>
+          <Text color="green">{t('input.submit')}: {message}</Text>
         </Box>
       )}
       {repoName && (
         <Box marginTop={0} marginBottom={0}>
-          <Text color="gray">Repository: {repoName}</Text>
+          <Text color="gray">{t('common.repository')}: {repoName}</Text>
         </Box>
       )}
     </Box>
@@ -47,3 +48,8 @@ const TerminalInterface: React.FC<TerminalInterfaceProps> = ({
 };
 
 export default TerminalInterface;
+
+
+
+
+

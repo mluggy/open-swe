@@ -4,6 +4,13 @@ import { Inter } from "next/font/google";
 import React from "react";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import { ThemeProvider } from "@/components/theme-provider";
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages, getLocale, getTranslations } from 'next-intl/server';
+import { 
+  getLanguageFromLocale, 
+  isRTLLanguage, 
+  type SupportedLanguage 
+} from '@open-swe/shared';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -11,24 +18,35 @@ const inter = Inter({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "Open SWE",
-  description: "Open SWE UX by LangChain",
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/favicon.ico",
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations('metadata');
+  
+  return {
+    title: t('title'),
+    description: t('description'),
+    icons: {
+      icon: "/favicon.ico",
+      shortcut: "/favicon.ico",
+      apple: "/favicon.ico",
+    },
+  };
+}
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Get the current locale and messages
+  const locale = await getLocale();
+  const messages = await getMessages();
+  const language = getLanguageFromLocale(locale) as SupportedLanguage;
+  const isRTL = isRTLLanguage(language);
+
   return (
     <html
-      lang="en"
+      lang={language}
+      dir={isRTL ? 'rtl' : 'ltr'}
       suppressHydrationWarning
     >
       <head>
@@ -58,13 +76,20 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
-        <ThemeProvider
-          defaultTheme="system"
-          storageKey="theme"
-        >
-          <NuqsAdapter>{children}</NuqsAdapter>
-        </ThemeProvider>
+        <NextIntlClientProvider messages={messages} locale={locale}>
+          <ThemeProvider
+            defaultTheme="system"
+            storageKey="theme"
+          >
+            <NuqsAdapter>{children}</NuqsAdapter>
+          </ThemeProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );
 }
+
+
+
+
+

@@ -1,0 +1,71 @@
+{
+  "startup": {
+    "title": "🏠 Starting Open SWE CLI in Local Mode",
+    "workingDirectory": "   Working directory:",
+    "noAuth": "   No GitHub authentication required",
+    "goodbye": "\n👋 Goodbye!"
+  },
+  "commands": {
+    "name": "open-swe",
+    "description": "Open SWE CLI - Local Mode",
+    "helpOption": "Display help for command"
+  },
+  "feedback": {
+    "planFeedback": "Plan feedback: ",
+    "approve": "Approve",
+    "deny": "Deny",
+    "instructions": "(Use ←/→ to select, Enter to confirm)",
+    "exitHint": "(Press Ctrl+K to exit)"
+  },
+  "loading": {
+    "default": "Loading",
+    "processing": "Processing",
+    "connecting": "Connecting",
+    "initializing": "Initializing"
+  },
+  "status": {
+    "streaming": "Streaming",
+    "awaitingFeedback": "Awaiting feedback",
+    "done": "Done",
+    "idle": "Idle",
+    "running": "Running",
+    "completed": "Completed",
+    "failed": "Failed",
+    "error": "Error"
+  },
+  "input": {
+    "placeholder": "Type your message...",
+    "submit": "Submit",
+    "cancel": "Cancel"
+  },
+  "errors": {
+    "generic": "An error occurred",
+    "connection": "Connection failed",
+    "timeout": "Request timed out",
+    "unauthorized": "Unauthorized access",
+    "notFound": "Resource not found"
+  },
+  "navigation": {
+    "up": "↑",
+    "down": "↓",
+    "left": "←",
+    "right": "→",
+    "enter": "Enter",
+    "escape": "Escape",
+    "ctrlK": "Ctrl+K"
+  },
+  "common": {
+    "yes": "Yes",
+    "no": "No",
+    "ok": "OK",
+    "cancel": "Cancel",
+    "continue": "Continue",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "retry": "Retry",
+    "exit": "Exit",
+    "repository": "Repository"
+  }
+}
+

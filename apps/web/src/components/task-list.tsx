@@ -7,6 +7,7 @@ import { useState, useCallback } from "react";
 import { ThreadItem } from "./thread-item";
 import { Thread } from "@langchain/langgraph-sdk";
 import { GraphState } from "@open-swe/shared/open-swe/types";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const THREADS_PER_PAGE = 5;
 
@@ -15,6 +16,7 @@ export default function TaskList() {
   const [threadId, setThreadId] = useQueryState("threadId", parseAsString);
   const [currentPage, setCurrentPage] = useState(0);
   const { threads, threadsLoading, handleThreadClick } = useThreadsContext();
+  const { t } = useTranslation('threads');
 
   const isDashboardMode = !taskId;
 
@@ -40,13 +42,13 @@ export default function TaskList() {
 
   return (
     <div className="flex h-full w-full max-w-3xl flex-col gap-2">
-      <p className="text-sm text-gray-500">Threads ({totalThreads})</p>
+      <p className="text-sm text-gray-500">{t('count', { count: totalThreads })}</p>
       <div>
         {threadsLoading ? (
           <div className="flex h-full items-center justify-center">
             <div className="text-center text-gray-500">
               <Archive className="mx-auto mb-2 h-6 w-6 animate-pulse opacity-50" />
-              <p className="text-sm">Loading threads...</p>
+              <p className="text-sm">{t('loading')}</p>
             </div>
           </div>
         ) : paginatedThreads.length > 0 ? (
@@ -64,8 +66,11 @@ export default function TaskList() {
             {totalPages > 1 && (
               <div className="flex items-center justify-between border-t pt-4">
                 <div className="text-sm text-gray-500">
-                  Showing {startIndex + 1}-{Math.min(endIndex, totalThreads)} of{" "}
-                  {totalThreads} threads
+                  {t('pagination.showing', { 
+                    start: startIndex + 1, 
+                    end: Math.min(endIndex, totalThreads), 
+                    total: totalThreads 
+                  })}
                 </div>
                 <div className="flex items-center space-x-2">
                   <Button
@@ -75,7 +80,7 @@ export default function TaskList() {
                     disabled={currentPage === 0}
                   >
                     <ChevronLeft className="h-4 w-4" />
-                    Previous
+                    {t('pagination.previous')}
                   </Button>
                   <Button
                     variant="outline"
@@ -85,7 +90,7 @@ export default function TaskList() {
                     }
                     disabled={currentPage === totalPages - 1}
                   >
-                    Next
+                    {t('pagination.next')}
                     <ChevronRight className="h-4 w-4" />
                   </Button>
                 </div>
@@ -96,7 +101,7 @@ export default function TaskList() {
           <div className="flex h-full items-center justify-center">
             <div className="text-center text-gray-500">
               <Archive className="mx-auto mb-2 h-6 w-6 opacity-50" />
-              <p className="text-sm">No threads found</p>
+              <p className="text-sm">{t('noThreads')}</p>
             </div>
           </div>
         )}
@@ -104,3 +109,9 @@ export default function TaskList() {
     </div>
   );
 }
+
+
+
+
+
+

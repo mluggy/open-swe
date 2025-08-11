@@ -8,34 +8,35 @@ dotenv.config();
 
 // Handle graceful exit on Ctrl+C and Ctrl+K
 process.on("SIGINT", () => {
-  console.log("\n👋 Goodbye!");
+  console.log(t('startup.goodbye'));
   process.exit(0);
 });
 
 process.on("SIGTERM", () => {
-  console.log("\n👋 Goodbye!");
+  console.log(t('startup.goodbye'));
   process.exit(0);
 });
 
 import { submitFeedback } from "./utils.js";
 import { StreamingService } from "./streaming.js";
+import { t, getLocaleInfo } from "./i18n.js";
 
 // Parse command line arguments with Commander
 const program = new Command();
 
 program
-  .name("open-swe")
-  .description("Open SWE CLI - Local Mode")
+  .name(t('commands.name'))
+  .description(t('commands.description'))
   .version(OPEN_SWE_CLI_VERSION)
-  .helpOption("-h, --help", "Display help for command")
+  .helpOption("-h, --help", t('commands.helpOption'))
   .parse();
 
 // Always run in local mode
 process.env.OPEN_SWE_LOCAL_MODE = "true";
 
-console.log("🏠 Starting Open SWE CLI in Local Mode");
-console.log("   Working directory:", process.cwd());
-console.log("   No GitHub authentication required");
+console.log(t('startup.title'));
+console.log(t('startup.workingDirectory'), process.cwd());
+console.log(t('startup.noAuth'));
 console.log("");
 
 const LoadingSpinner: React.FC<{ text: string }> = ({ text }) => {
@@ -69,7 +70,7 @@ const CustomInput: React.FC<{ onSubmit: (value: string) => void }> = ({
 
     // Handle Ctrl+K for exit
     if (key.ctrl && inputChar.toLowerCase() === "k") {
-      console.log("\n👋 Goodbye!");
+      console.log(t('startup.goodbye'));
       process.exit(0);
     }
 
@@ -118,7 +119,7 @@ const App: React.FC = () => {
 
       // Handle Ctrl+K for exit
       if (key.ctrl && inputChar.toLowerCase() === "k") {
-        console.log("\n👋 Goodbye!");
+        console.log(t('startup.goodbye'));
         process.exit(0);
       }
 
@@ -138,20 +139,20 @@ const App: React.FC = () => {
 
     return (
       <Box flexDirection="row" alignItems="center" gap={2}>
-        <Text>Plan feedback: </Text>
+        <Text>{t('feedback.planFeedback')}</Text>
         <Text
           color={selectedOption === "approve" ? "black" : "white"}
           bold={selectedOption === "approve"}
         >
-          {selectedOption === "approve" ? "▶ " : "  "}Approve
+          {selectedOption === "approve" ? "▶ " : "  "}{t('feedback.approve')}
         </Text>
         <Text
           color={selectedOption === "deny" ? "black" : "white"}
           bold={selectedOption === "deny"}
         >
-          {selectedOption === "deny" ? "▶ " : "  "}Deny
+          {selectedOption === "deny" ? "▶ " : "  "}{t('feedback.deny')}
         </Text>
-        <Text dimColor>(Use ←/→ to select, Enter to confirm)</Text>
+        <Text dimColor>{t('feedback.instructions')}</Text>
       </Box>
     );
   };
@@ -206,7 +207,7 @@ const App: React.FC = () => {
       >
         <Box flexDirection="column">
           {loadingLogs && logs.length === 0 ? (
-            <LoadingSpinner text="Starting agent" />
+            <LoadingSpinner text={t('loading.initializing')} />
           ) : (
             visibleLogs.map((log, index) => (
               <Box key={`${logs.length}-${index}`}>
@@ -277,7 +278,7 @@ const App: React.FC = () => {
             />
           ) : (
             <Box>
-              <Text>Streaming...</Text>
+              <Text>{t('status.streaming')}</Text>
             </Box>
           )}
         </Box>
@@ -286,7 +287,7 @@ const App: React.FC = () => {
       {/* Local mode indicator underneath the input bar */}
       <Box paddingX={2} paddingY={0}>
         <Text>
-          Working on {process.env.OPEN_SWE_LOCAL_PROJECT_PATH} • Ctrl+K to exit
+          Working on {process.env.OPEN_SWE_LOCAL_PROJECT_PATH} • {t('feedback.exitHint')}
         </Text>
       </Box>
     </Box>
@@ -294,3 +295,13 @@ const App: React.FC = () => {
 };
 
 render(<App />);
+
+
+
+
+
+
+
+
+
+

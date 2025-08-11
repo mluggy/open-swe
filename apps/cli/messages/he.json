@@ -1,0 +1,69 @@
+{
+  "startup": {
+    "title": "🏠 מתחיל Open SWE CLI במצב מקומי",
+    "workingDirectory": "   תיקיית עבודה:",
+    "noAuth": "   אין צורך באימות GitHub",
+    "goodbye": "\n👋 להתראות!"
+  },
+  "commands": {
+    "name": "open-swe",
+    "description": "Open SWE CLI - מצב מקומי",
+    "helpOption": "הצג עזרה לפקודה"
+  },
+  "feedback": {
+    "planFeedback": "משוב על התוכנית: ",
+    "approve": "אשר",
+    "deny": "דחה",
+    "instructions": "(השתמש ב-←/→ לבחירה, Enter לאישור)",
+    "exitHint": "(לחץ Ctrl+K ליציאה)"
+  },
+  "loading": {
+    "default": "טוען",
+    "processing": "מעבד",
+    "connecting": "מתחבר",
+    "initializing": "מאתחל"
+  },
+  "status": {
+    "streaming": "זורם",
+    "awaitingFeedback": "ממתין למשוב",
+    "done": "הושלם",
+    "idle": "במנוחה",
+    "running": "רץ",
+    "completed": "הושלם",
+    "failed": "נכשל",
+    "error": "שגיאה"
+  },
+  "input": {
+    "placeholder": "הקלד את ההודעה שלך...",
+    "submit": "שלח",
+    "cancel": "ביטול"
+  },
+  "errors": {
+    "generic": "אירעה שגיאה",
+    "connection": "החיבור נכשל",
+    "timeout": "הבקשה פגה",
+    "unauthorized": "גישה לא מורשית",
+    "notFound": "המשאב לא נמצא"
+  },
+  "navigation": {
+    "up": "↑",
+    "down": "↓",
+    "left": "←",
+    "right": "→",
+    "enter": "Enter",
+    "escape": "Escape",
+    "ctrlK": "Ctrl+K"
+  },
+  "common": {
+    "yes": "כן",
+    "no": "לא",
+    "ok": "אישור",
+    "cancel": "ביטול",
+    "continue": "המשך",
+    "back": "חזור",
+    "next": "הבא",
+    "previous": "קודם",
+    "retry": "נסה שוב",
+    "exit": "יציאה"
+  }
+}

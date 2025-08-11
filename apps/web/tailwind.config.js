@@ -16,6 +16,9 @@ module.exports = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      spacing: {
+        'rtl-safe': '0.5rem',
+      },
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
@@ -58,7 +61,102 @@ module.exports = {
           5: "hsl(var(--chart-5))",
         },
       },
+      textAlign: {
+        'start': 'start',
+        'end': 'end',
+      },
+      margin: {
+        'inline-start': 'margin-inline-start',
+        'inline-end': 'margin-inline-end',
+      },
+      padding: {
+        'inline-start': 'padding-inline-start',
+        'inline-end': 'padding-inline-end',
+      },
     },
   },
-  plugins: [require("tailwindcss-animate"), require("tailwind-scrollbar")],
+  plugins: [
+    require("tailwindcss-animate"), 
+    require("tailwind-scrollbar"),
+    function({ addUtilities }) {
+      const newUtilities = {
+        '.rtl': {
+          direction: 'rtl',
+        },
+        '.ltr': {
+          direction: 'ltr',
+        },
+        '.text-start': {
+          'text-align': 'start',
+        },
+        '.text-end': {
+          'text-align': 'end',
+        },
+        '.ms-auto': {
+          'margin-inline-start': 'auto',
+        },
+        '.me-auto': {
+          'margin-inline-end': 'auto',
+        },
+        '.ps-0': {
+          'padding-inline-start': '0',
+        },
+        '.pe-0': {
+          'padding-inline-end': '0',
+        },
+        '.ps-1': {
+          'padding-inline-start': '0.25rem',
+        },
+        '.pe-1': {
+          'padding-inline-end': '0.25rem',
+        },
+        '.ps-2': {
+          'padding-inline-start': '0.5rem',
+        },
+        '.pe-2': {
+          'padding-inline-end': '0.5rem',
+        },
+        '.ps-3': {
+          'padding-inline-start': '0.75rem',
+        },
+        '.pe-3': {
+          'padding-inline-end': '0.75rem',
+        },
+        '.ps-4': {
+          'padding-inline-start': '1rem',
+        },
+        '.pe-4': {
+          'padding-inline-end': '1rem',
+        },
+        '.ms-1': {
+          'margin-inline-start': '0.25rem',
+        },
+        '.me-1': {
+          'margin-inline-end': '0.25rem',
+        },
+        '.ms-2': {
+          'margin-inline-start': '0.5rem',
+        },
+        '.me-2': {
+          'margin-inline-end': '0.5rem',
+        },
+        '.ms-3': {
+          'margin-inline-start': '0.75rem',
+        },
+        '.me-3': {
+          'margin-inline-end': '0.75rem',
+        },
+        '.ms-4': {
+          'margin-inline-start': '1rem',
+        },
+        '.me-4': {
+          'margin-inline-end': '1rem',
+        },
+      }
+      addUtilities(newUtilities, ['responsive', 'hover'])
+    }
+  ],
 };
+
+
+

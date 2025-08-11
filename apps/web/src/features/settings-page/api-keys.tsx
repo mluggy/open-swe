@@ -14,6 +14,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { useConfigStore, DEFAULT_CONFIG_KEY } from "@/hooks/useConfigStore";
+import { useTranslation } from "@/hooks/useTranslation";
 
 interface ApiKey {
   id: string;
@@ -29,20 +30,20 @@ interface ApiKeySection {
   keys: ApiKey[];
 }
 
-const API_KEY_SECTIONS: Record<string, Omit<ApiKeySection, "keys">> = {
+const getApiKeySections = (t: any): Record<string, Omit<ApiKeySection, "keys">> => ({
   llms: {
-    title: "LLMs",
+    title: t('llmsTitle'),
   },
   // infrastructure: {
   //   title: "Infrastructure",
   // },
-};
+});
 
-const API_KEY_DEFINITIONS = {
+const getApiKeyDefinitions = (t: any) => ({
   llms: [
-    { id: "anthropicApiKey", name: "Anthropic" },
-    { id: "openaiApiKey", name: "OpenAI" },
-    { id: "googleApiKey", name: "Google Gen AI" },
+    { id: "anthropicApiKey", name: t('providers.anthropic') },
+    { id: "openaiApiKey", name: t('providers.openai') },
+    { id: "googleApiKey", name: t('providers.google') },
   ],
   // infrastructure: [
   //   {
@@ -51,7 +52,7 @@ const API_KEY_DEFINITIONS = {
   //     description: "Users not required to set this if using the demo",
   //   },
   // ],
-};
+});
 
 const shouldAutofocus = (apiKeyId: string, hasValue: boolean): boolean => {
   if (apiKeyId === "anthropicApiKey") {
@@ -64,6 +65,7 @@ const shouldAutofocus = (apiKeyId: string, hasValue: boolean): boolean => {
 export function APIKeysTab() {
   const { getConfig, updateConfig } = useConfigStore();
   const config = getConfig(DEFAULT_CONFIG_KEY);
+  const { t } = useTranslation('settings.apiKeys');
 
   const [visibilityState, setVisibilityState] = useState<
     Record<string, boolean>
@@ -95,11 +97,14 @@ export function APIKeysTab() {
     const sections: Record<string, ApiKeySection> = {};
     const apiKeys = config.apiKeys || {};
 
-    Object.entries(API_KEY_SECTIONS).forEach(([sectionKey, sectionInfo]) => {
+    const apiKeySections = getApiKeySections(t);
+    const apiKeyDefinitions = getApiKeyDefinitions(t);
+    
+    Object.entries(apiKeySections).forEach(([sectionKey, sectionInfo]) => {
       sections[sectionKey] = {
         ...sectionInfo,
-        keys: API_KEY_DEFINITIONS[
-          sectionKey as keyof typeof API_KEY_DEFINITIONS
+        keys: apiKeyDefinitions[
+          sectionKey as keyof typeof apiKeyDefinitions
         ].map((keyDef) => ({
           ...keyDef,
           value: apiKeys[keyDef.id] || "",
@@ -118,11 +123,8 @@ export function APIKeysTab() {
       <Alert className="border-blue-200 bg-blue-50 dark:border-blue-800 dark:bg-blue-900/20">
         <Info className="h-4 w-4 text-blue-600 dark:text-blue-400" />
         <AlertDescription className="text-blue-800 dark:text-blue-300">
-          <p>
-            Open SWE uses Anthropic models by default. Configure your Anthropic
-            API key below to get started.
-          </p>
-          <p>Only an Anthropic API key is required to get started.</p>
+          <p>{t('anthropicInfo')}</p>
+          <p>{t('anthropicRequired')}</p>
         </AlertDescription>
       </Alert>
       {Object.entries(apiKeySections).map(([sectionKey, section]) => (
@@ -136,7 +138,7 @@ export function APIKeysTab() {
               {section.title}
             </CardTitle>
             <CardDescription>
-              Manage API keys for {section.title.toLowerCase()} services
+              {t('description', { service: section.title.toLowerCase() })}
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
@@ -159,12 +161,12 @@ export function APIKeysTab() {
                           "dark:border-green-800 dark:bg-green-900/20 dark:text-green-400",
                         )}
                       >
-                        Configured
+{t('configured')}
                       </Badge>
                     )}
                     {apiKey.lastUsed && (
                       <span className="text-muted-foreground text-xs">
-                        Last used {apiKey.lastUsed}
+{t('lastUsed', { date: apiKey.lastUsed })}
                       </span>
                     )}
                   </div>
@@ -177,7 +179,7 @@ export function APIKeysTab() {
                         htmlFor={`${apiKey.id}-key`}
                         className="text-sm font-medium"
                       >
-                        API Key
+{t('apiKeyLabel')}
                       </Label>
                       {apiKey.description && (
                         <p className="text-muted-foreground text-xs">
@@ -192,7 +194,7 @@ export function APIKeysTab() {
                           onChange={(e) =>
                             updateApiKey(apiKey.id, e.target.value)
                           }
-                          placeholder={`Enter your ${apiKey.name} API key`}
+                          placeholder={t('placeholder', { provider: apiKey.name })}
                           className="font-mono text-sm"
                           autoFocus={shouldAutofocus(apiKey.id, !!apiKey.value)}
                         />
@@ -233,3 +235,14 @@ export function APIKeysTab() {
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
+
+

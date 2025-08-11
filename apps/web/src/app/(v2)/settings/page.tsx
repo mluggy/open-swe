@@ -2,13 +2,16 @@
 
 import { Suspense } from "react";
 import SettingsPage from "@/features/settings-page/index";
+import { useTranslation } from "@/hooks/useTranslation";
 
 function SettingsPageLoading() {
+  const { t } = useTranslation('settings');
+  
   return (
     <div className="mx-auto max-w-6xl p-6">
       <div className="mb-8">
-        <h1 className="text-foreground mb-2 text-3xl font-bold">Settings</h1>
-        <p className="text-muted-foreground">Loading your settings...</p>
+        <h1 className="text-foreground mb-2 text-3xl font-bold">{t('title')}</h1>
+        <p className="text-muted-foreground">{t('loading')}</p>
       </div>
       <div className="space-y-6">
         <div className="bg-muted h-20 animate-pulse rounded"></div>
@@ -26,3 +29,5 @@ export default function Page() {
     </Suspense>
   );
 }
+
+
