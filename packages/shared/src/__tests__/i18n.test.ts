@@ -166,7 +166,7 @@ describe('Shared i18n utilities', () => {
     });
 
     it('should have correct RTL languages', () => {
-      expect(RTL_LANGUAGES).toEqual(['he', 'ar']);
+      expect(RTL_LANGUAGES).toEqual(['he']);
     });
   });
 
@@ -207,6 +207,7 @@ describe('Shared i18n utilities', () => {
     });
   });
 });
+
 
 
 
