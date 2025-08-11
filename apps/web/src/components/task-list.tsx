@@ -101,7 +101,7 @@ export default function TaskList() {
           <div className="flex h-full items-center justify-center">
             <div className="text-center text-gray-500">
               <Archive className="mx-auto mb-2 h-6 w-6 opacity-50" />
-              <p className="text-sm">No threads found</p>
+              <p className="text-sm">{t('noThreads')}</p>
             </div>
           </div>
         )}
@@ -109,6 +109,7 @@ export default function TaskList() {
     </div>
   );
 }
+
 
 
 
