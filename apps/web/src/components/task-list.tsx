@@ -66,8 +66,11 @@ export default function TaskList() {
             {totalPages > 1 && (
               <div className="flex items-center justify-between border-t pt-4">
                 <div className="text-sm text-gray-500">
-                  Showing {startIndex + 1}-{Math.min(endIndex, totalThreads)} of{" "}
-                  {totalThreads} threads
+                  {t('pagination.showing', { 
+                    start: startIndex + 1, 
+                    end: Math.min(endIndex, totalThreads), 
+                    total: totalThreads 
+                  })}
                 </div>
                 <div className="flex items-center space-x-2">
                   <Button
@@ -77,7 +80,7 @@ export default function TaskList() {
                     disabled={currentPage === 0}
                   >
                     <ChevronLeft className="h-4 w-4" />
-                    Previous
+                    {t('pagination.previous')}
                   </Button>
                   <Button
                     variant="outline"
@@ -87,7 +90,7 @@ export default function TaskList() {
                     }
                     disabled={currentPage === totalPages - 1}
                   >
-                    Next
+                    {t('pagination.next')}
                     <ChevronRight className="h-4 w-4" />
                   </Button>
                 </div>
@@ -106,6 +109,7 @@ export default function TaskList() {
     </div>
   );
 }
+
 
 
 
