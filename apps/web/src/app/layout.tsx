@@ -28,14 +28,21 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Get the current locale and messages
+  const locale = await getLocale();
+  const messages = await getMessages();
+  const language = getLanguageFromLocale(locale) as SupportedLanguage;
+  const isRTL = isRTLLanguage(language);
+
   return (
     <html
-      lang="en"
+      lang={language}
+      dir={isRTL ? 'rtl' : 'ltr'}
       suppressHydrationWarning
     >
       <head>
@@ -75,4 +82,5 @@ export default function RootLayout({
     </html>
   );
 }
+
 
