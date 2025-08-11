@@ -34,9 +34,9 @@ program
 // Always run in local mode
 process.env.OPEN_SWE_LOCAL_MODE = "true";
 
-console.log("🏠 Starting Open SWE CLI in Local Mode");
-console.log("   Working directory:", process.cwd());
-console.log("   No GitHub authentication required");
+console.log(t('startup.title'));
+console.log(t('startup.workingDirectory'), process.cwd());
+console.log(t('startup.noAuth'));
 console.log("");
 
 const LoadingSpinner: React.FC<{ text: string }> = ({ text }) => {
@@ -295,6 +295,7 @@ const App: React.FC = () => {
 };
 
 render(<App />);
+
 
 
 
