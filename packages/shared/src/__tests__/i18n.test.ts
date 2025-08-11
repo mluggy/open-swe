@@ -201,7 +201,13 @@ describe('Shared i18n utilities', () => {
       expect(normalizeLocale('   ')).toBe('en-US');
       expect(getLanguageFromLocale('   ')).toBe('en');
     });
+
+    it('should handle detectLocale with empty sources', () => {
+      expect(detectLocale({})).toBe('en-US');
+      expect(detectLocale({ userPreference: '' })).toBe('en-US');
+    });
   });
 });
+
 
 
