@@ -65,6 +65,7 @@ const shouldAutofocus = (apiKeyId: string, hasValue: boolean): boolean => {
 export function APIKeysTab() {
   const { getConfig, updateConfig } = useConfigStore();
   const config = getConfig(DEFAULT_CONFIG_KEY);
+  const { t } = useTranslation('settings.apiKeys');
 
   const [visibilityState, setVisibilityState] = useState<
     Record<string, boolean>
@@ -234,4 +235,5 @@ export function APIKeysTab() {
     </div>
   );
 }
+
 
