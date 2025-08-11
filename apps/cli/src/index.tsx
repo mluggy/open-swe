@@ -287,7 +287,7 @@ const App: React.FC = () => {
       {/* Local mode indicator underneath the input bar */}
       <Box paddingX={2} paddingY={0}>
         <Text>
-          Working on {process.env.OPEN_SWE_LOCAL_PROJECT_PATH} • Ctrl+K to exit
+          Working on {process.env.OPEN_SWE_LOCAL_PROJECT_PATH} • {t('feedback.exitHint')}
         </Text>
       </Box>
     </Box>
@@ -295,6 +295,7 @@ const App: React.FC = () => {
 };
 
 render(<App />);
+
 
 
 
