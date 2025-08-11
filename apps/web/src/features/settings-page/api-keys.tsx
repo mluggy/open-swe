@@ -138,7 +138,7 @@ export function APIKeysTab() {
               {section.title}
             </CardTitle>
             <CardDescription>
-              Manage API keys for {section.title.toLowerCase()} services
+              {t('description', { service: section.title.toLowerCase() })}
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
@@ -235,6 +235,7 @@ export function APIKeysTab() {
     </div>
   );
 }
+
 
 
 
