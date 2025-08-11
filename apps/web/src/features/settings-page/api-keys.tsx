@@ -30,14 +30,14 @@ interface ApiKeySection {
   keys: ApiKey[];
 }
 
-const API_KEY_SECTIONS: Record<string, Omit<ApiKeySection, "keys">> = {
+const getApiKeySections = (t: any): Record<string, Omit<ApiKeySection, "keys">> => ({
   llms: {
-    title: "LLMs",
+    title: t('llmsTitle'),
   },
   // infrastructure: {
   //   title: "Infrastructure",
   // },
-};
+});
 
 const API_KEY_DEFINITIONS = {
   llms: [
@@ -235,5 +235,6 @@ export function APIKeysTab() {
     </div>
   );
 }
+
 
 
