@@ -4,7 +4,7 @@ import {
   SUPPORTED_LOCALES, 
   normalizeLocale, 
   type SupportedLocale 
-} from '@open-swe/shared/i18n';
+} from '@open-swe/shared';
 
 export default getRequestConfig(async ({ locale }) => {
   // Validate that the incoming `locale` parameter is valid
@@ -19,3 +19,4 @@ export default getRequestConfig(async ({ locale }) => {
     messages: (await import(`../../messages/${normalizedLocale.split('-')[0]}.json`)).default
   };
 });
+
