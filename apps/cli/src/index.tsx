@@ -119,7 +119,7 @@ const App: React.FC = () => {
 
       // Handle Ctrl+K for exit
       if (key.ctrl && inputChar.toLowerCase() === "k") {
-        console.log("\n👋 Goodbye!");
+        console.log(t('startup.goodbye'));
         process.exit(0);
       }
 
@@ -295,6 +295,7 @@ const App: React.FC = () => {
 };
 
 render(<App />);
+
 
 
 
