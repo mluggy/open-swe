@@ -21,7 +21,7 @@ const TerminalInterface: React.FC<TerminalInterfaceProps> = ({
         <Text bold>{t('commands.description')}</Text>
       </Box>
       <Box flexDirection="column">
-        <Text>Describe your coding task in as much detail as possible...</Text>
+        <Text>{t('input.placeholder')}</Text>
       </Box>
       <Box
         borderStyle="round"
@@ -48,5 +48,6 @@ const TerminalInterface: React.FC<TerminalInterfaceProps> = ({
 };
 
 export default TerminalInterface;
+
 
 
