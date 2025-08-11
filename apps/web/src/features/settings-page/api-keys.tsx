@@ -166,7 +166,7 @@ export function APIKeysTab() {
                     )}
                     {apiKey.lastUsed && (
                       <span className="text-muted-foreground text-xs">
-                        Last used {apiKey.lastUsed}
+{t('lastUsed', { date: apiKey.lastUsed })}
                       </span>
                     )}
                   </div>
@@ -235,6 +235,7 @@ export function APIKeysTab() {
     </div>
   );
 }
+
 
 
 
