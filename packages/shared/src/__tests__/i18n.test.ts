@@ -112,62 +112,48 @@ describe('Shared i18n utilities', () => {
   });
 
   describe('detectLocale', () => {
-    const originalEnv = process.env;
-
-    beforeEach(() => {
-      // Reset environment variables
-      process.env = { ...originalEnv };
-      delete process.env.LANG;
-      delete process.env.LANGUAGE;
-      delete process.env.LC_ALL;
-      delete process.env.LC_MESSAGES;
+    it('should detect locale from system locale', () => {
+      const result = detectLocale({ systemLocale: 'he_IL.UTF-8' });
+      expect(result).toBe('he-IL');
     });
 
-    afterAll(() => {
-      process.env = originalEnv;
+    it('should detect locale from user preference', () => {
+      const result = detectLocale({ userPreference: 'en-US' });
+      expect(result).toBe('en-US');
     });
 
-    it('should detect locale from LANG environment variable', () => {
-      process.env.LANG = 'he_IL.UTF-8';
-      expect(detectLocale()).toBe('he-IL');
-
-      process.env.LANG = 'en_US.UTF-8';
-      expect(detectLocale()).toBe('en-US');
+    it('should detect locale from browser language', () => {
+      const result = detectLocale({ browserLanguage: 'he-IL' });
+      expect(result).toBe('he-IL');
     });
 
-    it('should detect locale from LANGUAGE environment variable', () => {
-      process.env.LANGUAGE = 'he_IL:he:en_US:en';
-      expect(detectLocale()).toBe('he-IL');
+    it('should detect locale from accept language', () => {
+      const result = detectLocale({ acceptLanguage: 'he-IL,he;q=0.9,en;q=0.8' });
+      expect(result).toBe('he-IL');
     });
 
-    it('should detect locale from LC_ALL environment variable', () => {
-      process.env.LC_ALL = 'he_IL.UTF-8';
-      expect(detectLocale()).toBe('he-IL');
+    it('should prioritize sources correctly', () => {
+      const result = detectLocale({ 
+        userPreference: 'he-IL',
+        browserLanguage: 'en-US',
+        systemLocale: 'fr-FR'
+      });
+      expect(result).toBe('he-IL'); // User preference should take precedence
     });
 
-    it('should detect locale from LC_MESSAGES environment variable', () => {
-      process.env.LC_MESSAGES = 'he_IL.UTF-8';
-      expect(detectLocale()).toBe('he-IL');
+    it('should fallback to default locale when no sources provided', () => {
+      const result = detectLocale({});
+      expect(result).toBe('en-US');
     });
 
-    it('should prioritize environment variables correctly', () => {
-      process.env.LC_ALL = 'he_IL.UTF-8';
-      process.env.LANG = 'en_US.UTF-8';
-      expect(detectLocale()).toBe('he-IL'); // LC_ALL should take precedence
-    });
-
-    it('should fallback to default locale when no environment variables are set', () => {
-      expect(detectLocale()).toBe('en-US');
-    });
-
-    it('should handle malformed environment variables', () => {
-      process.env.LANG = 'invalid';
-      expect(detectLocale()).toBe('en-US');
+    it('should handle malformed locale strings', () => {
+      const result = detectLocale({ systemLocale: 'invalid' });
+      expect(result).toBe('en-US');
     });
 
     it('should normalize detected locales', () => {
-      process.env.LANG = 'en_GB.UTF-8';
-      expect(detectLocale()).toBe('en-US'); // Should fallback en-GB → en-US
+      const result = detectLocale({ systemLocale: 'en_GB.UTF-8' });
+      expect(result).toBe('en-US'); // Should fallback en-GB → en-US
     });
   });
 
@@ -217,4 +203,5 @@ describe('Shared i18n utilities', () => {
     });
   });
 });
+
 
