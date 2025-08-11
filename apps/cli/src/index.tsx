@@ -8,12 +8,12 @@ dotenv.config();
 
 // Handle graceful exit on Ctrl+C and Ctrl+K
 process.on("SIGINT", () => {
-  console.log("\n👋 Goodbye!");
+  console.log(t('startup.goodbye'));
   process.exit(0);
 });
 
 process.on("SIGTERM", () => {
-  console.log("\n👋 Goodbye!");
+  console.log(t('startup.goodbye'));
   process.exit(0);
 });
 
@@ -295,4 +295,5 @@ const App: React.FC = () => {
 };
 
 render(<App />);
+
 
