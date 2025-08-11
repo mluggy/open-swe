@@ -64,6 +64,8 @@
     "next": "Next",
     "previous": "Previous",
     "retry": "Retry",
-    "exit": "Exit"
+    "exit": "Exit",
+    "repository": "Repository"
   }
 }
+
