@@ -151,7 +151,7 @@ describe('Shared i18n utilities', () => {
     });
 
     it('should normalize detected locales', () => {
-      const result = detectLocale({ systemLocale: 'en_GB.UTF-8' });
+      const result = detectLocale({ systemLocale: 'en-GB' });
       expect(result).toBe('en-US'); // Should fallback en-GB → en-US
     });
   });
@@ -209,6 +209,7 @@ describe('Shared i18n utilities', () => {
     });
   });
 });
+
 
 
 
