@@ -207,7 +207,7 @@ const App: React.FC = () => {
       >
         <Box flexDirection="column">
           {loadingLogs && logs.length === 0 ? (
-            <LoadingSpinner text="Starting agent" />
+            <LoadingSpinner text={t('loading.initializing')} />
           ) : (
             visibleLogs.map((log, index) => (
               <Box key={`${logs.length}-${index}`}>
@@ -295,6 +295,7 @@ const App: React.FC = () => {
 };
 
 render(<App />);
+
 
 
 
