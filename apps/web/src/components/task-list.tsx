@@ -48,7 +48,7 @@ export default function TaskList() {
           <div className="flex h-full items-center justify-center">
             <div className="text-center text-gray-500">
               <Archive className="mx-auto mb-2 h-6 w-6 animate-pulse opacity-50" />
-              <p className="text-sm">Loading threads...</p>
+              <p className="text-sm">{t('loading')}</p>
             </div>
           </div>
         ) : paginatedThreads.length > 0 ? (
@@ -106,6 +106,7 @@ export default function TaskList() {
     </div>
   );
 }
+
 
 
 
