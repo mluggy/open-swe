@@ -194,7 +194,7 @@ export function APIKeysTab() {
                           onChange={(e) =>
                             updateApiKey(apiKey.id, e.target.value)
                           }
-                          placeholder={`Enter your ${apiKey.name} API key`}
+                          placeholder={t('placeholder', { provider: apiKey.name })}
                           className="font-mono text-sm"
                           autoFocus={shouldAutofocus(apiKey.id, !!apiKey.value)}
                         />
@@ -235,6 +235,7 @@ export function APIKeysTab() {
     </div>
   );
 }
+
 
 
 
