@@ -7,6 +7,7 @@ import { useState, useCallback } from "react";
 import { ThreadItem } from "./thread-item";
 import { Thread } from "@langchain/langgraph-sdk";
 import { GraphState } from "@open-swe/shared/open-swe/types";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const THREADS_PER_PAGE = 5;
 
@@ -104,3 +105,4 @@ export default function TaskList() {
     </div>
   );
 }
+
