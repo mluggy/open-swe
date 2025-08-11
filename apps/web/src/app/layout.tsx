@@ -72,15 +72,18 @@ export default async function RootLayout({
         />
       </head>
       <body className={inter.className}>
-        <ThemeProvider
-          defaultTheme="system"
-          storageKey="theme"
-        >
-          <NuqsAdapter>{children}</NuqsAdapter>
-        </ThemeProvider>
+        <NextIntlClientProvider messages={messages} locale={locale}>
+          <ThemeProvider
+            defaultTheme="system"
+            storageKey="theme"
+          >
+            <NuqsAdapter>{children}</NuqsAdapter>
+          </ThemeProvider>
+        </NextIntlClientProvider>
       </body>
     </html>
   );
 }
+
 
 
