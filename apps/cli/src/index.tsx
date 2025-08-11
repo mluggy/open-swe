@@ -139,20 +139,20 @@ const App: React.FC = () => {
 
     return (
       <Box flexDirection="row" alignItems="center" gap={2}>
-        <Text>Plan feedback: </Text>
+        <Text>{t('feedback.planFeedback')}</Text>
         <Text
           color={selectedOption === "approve" ? "black" : "white"}
           bold={selectedOption === "approve"}
         >
-          {selectedOption === "approve" ? "▶ " : "  "}Approve
+          {selectedOption === "approve" ? "▶ " : "  "}{t('feedback.approve')}
         </Text>
         <Text
           color={selectedOption === "deny" ? "black" : "white"}
           bold={selectedOption === "deny"}
         >
-          {selectedOption === "deny" ? "▶ " : "  "}Deny
+          {selectedOption === "deny" ? "▶ " : "  "}{t('feedback.deny')}
         </Text>
-        <Text dimColor>(Use ←/→ to select, Enter to confirm)</Text>
+        <Text dimColor>{t('feedback.instructions')}</Text>
       </Box>
     );
   };
@@ -295,6 +295,7 @@ const App: React.FC = () => {
 };
 
 render(<App />);
+
 
 
 
