@@ -42,7 +42,7 @@ export default function TaskList() {
 
   return (
     <div className="flex h-full w-full max-w-3xl flex-col gap-2">
-      <p className="text-sm text-gray-500">Threads ({totalThreads})</p>
+      <p className="text-sm text-gray-500">{t('count', { count: totalThreads })}</p>
       <div>
         {threadsLoading ? (
           <div className="flex h-full items-center justify-center">
@@ -106,5 +106,6 @@ export default function TaskList() {
     </div>
   );
 }
+
 
 
