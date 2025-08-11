@@ -14,6 +14,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { useConfigStore, DEFAULT_CONFIG_KEY } from "@/hooks/useConfigStore";
+import { useTranslation } from "@/hooks/useTranslation";
 
 interface ApiKey {
   id: string;
@@ -233,3 +234,4 @@ export function APIKeysTab() {
     </div>
   );
 }
+
