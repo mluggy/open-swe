@@ -60,7 +60,7 @@ try {
 
   // Test 4: Verify API keys component has been updated
   const apiKeysPath = './apps/web/src/features/settings-page/api-keys.tsx';
-  if (fs.existsExists(apiKeysPath)) {
+  if (fs.existsSync(apiKeysPath)) {
     const apiKeysContent = fs.readFileSync(apiKeysPath, 'utf-8');
     console.log('✅ API keys component exists');
     
@@ -124,3 +124,4 @@ try {
   console.error('ERROR:', e.message);
   process.exit(1);
 }
+
